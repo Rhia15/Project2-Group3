@@ -1,1 +1,70 @@
+####DIPLOID
+
+#SCAF1
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_dips.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_1:3432326-3436300 -L Cexcelsa_scaf_1:3436373-3436406 -L Cexcelsa_scaf_1:3436660-3436961 -O /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_1/scaf_1.vcf 
+
+#generate consensus with bcftools 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_1/scaf_1.vcf 
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_1/scaf_1.vcf.gz
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_1:3432326-3436300 Cexcelsa_scaf_1:3436373-3436406 Cexcelsa_scaf_1:3436660-3436961 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_1/scaf_1.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_1/con_scaf_1.fasta
+
+#SCAF2 
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_dips.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_2:33820099-33820358 -L Cexcelsa_scaf_2:33820557-33820663 -L Cexcelsa_scaf_2:33820786-33820841 -L Cexcelsa_scaf_2:33820953-33821177 -L Cexcelsa_scaf_2:33821325-33821531 -L Cexcelsa_scaf_2:33821606-33821692 -L Cexcelsa_scaf_2:33821782-33821877 -L Cexcelsa_scaf_2:33821958-33822173 -L Cexcelsa_scaf_2:33822253-33822435 -L Cexcelsa_scaf_2:33822549-33822821 -O /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_2/scaf_2.vcf 
+
+#generte consensus with bcftools 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_2/scaf_2.vcf
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_2/scaf_2.vcf.gz 
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_2:33820099-33820358 Cexcelsa_scaf_2:33820557-33820663 Cexcelsa_scaf_2:33820786-33820841 Cexcelsa_scaf_2:33820953-33821177 Cexcelsa_scaf_2:33821325-33821531 Cexcelsa_scaf_2:33821606-33821692 Cexcelsa_scaf_2:33821782-33821877 Cexcelsa_scaf_2:33821958-33822173 Cexcelsa_scaf_2:33822253-33822435 Cexcelsa_scaf_2:33822549-33822821 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_2/scaf_2.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_2/con_scaf_2.fasta 
+
+#SCAF6
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_dips.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_6:8663444-8664082 -L Cexcelsa_scaf_6:8664177-8664356 -L Cexcelsa_scaf_6:8664455-8664667 -L Cexcelsa_scaf_6:8664767-8664895 -L Cexcelsa_scaf_6:8665013-8665181 -L Cexcelsa_scaf_6:8665278-8665556 -L Cexcelsa_scaf_6:8665826-8665905 -L Cexcelsa_scaf_6:8666150-8666269 -L Cexcelsa_scaf_6:8666368-8666530 -L Cexcelsa_scaf_6:8667031-8667274 -L Cexcelsa_scaf_6:8667633-8667732 -L Cexcelsa_scaf_6:8667946-8668084 -L Cexcelsa_scaf_6:8668360-8668463 -L Cexcelsa_scaf_6:8668561-8668617 -L Cexcelsa_scaf_6:8668709-8668735 -L Cexcelsa_scaf_6:8663444-8664082 -L Cexcelsa_scaf_6:8664177-8664356 -L Cexcelsa_scaf_6:8664455-8664667 -L Cexcelsa_scaf_6:8664767-8664895 -L Cexcelsa_scaf_6:8665013-8665181 -L Cexcelsa_scaf_6:8665278-8665556 -L Cexcelsa_scaf_6:8665826-8665905 -L Cexcelsa_scaf_6:8666150-8666269 -L Cexcelsa_scaf_6:8666368-8666530 -L Cexcelsa_scaf_6:8667031-8667274 -L Cexcelsa_scaf_6:8667633-8667732 -L Cexcelsa_scaf_6:8667991-8668084 -L Cexcelsa_scaf_6:8668360-8668463 -L Cexcelsa_scaf_6:8668561-8668617 -L Cexcelsa_scaf_6:8668709-8668735 -O /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_6/scaf_6.vcf 
+
+#generate consensus with bcftools 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_6/scaf_6.vcf
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_6/scaf_6.vcf.gz 
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_6:8663444-8664082 Cexcelsa_scaf_6:8664177-8664356 Cexcelsa_scaf_6:8664455-8664667 Cexcelsa_scaf_6:8664767-8664895 Cexcelsa_scaf_6:8665013-8665181 Cexcelsa_scaf_6:8665278-8665556 Cexcelsa_scaf_6:8665826-8665905 Cexcelsa_scaf_6:8666150-8666269 Cexcelsa_scaf_6:8666368-8666530 Cexcelsa_scaf_6:8667031-8667274 Cexcelsa_scaf_6:8667633-8667732 Cexcelsa_scaf_6:8667946-8668084 Cexcelsa_scaf_6:8668360-8668463 Cexcelsa_scaf_6:8668561-8668617 Cexcelsa_scaf_6:8668709-8668735 Cexcelsa_scaf_6:8663444-8664082 Cexcelsa_scaf_6:8664177-8664356 Cexcelsa_scaf_6:8664455-8664667 Cexcelsa_scaf_6:8664767-8664895 Cexcelsa_scaf_6:8665013-8665181 Cexcelsa_scaf_6:8665278-8665556 Cexcelsa_scaf_6:8665826-8665905 Cexcelsa_scaf_6:8666150-8666269 Cexcelsa_scaf_6:8666368-8666530 Cexcelsa_scaf_6:8667031-8667274 Cexcelsa_scaf_6:8667633-8667732 Cexcelsa_scaf_6:8667991-8668084 Cexcelsa_scaf_6:8668360-8668463 Cexcelsa_scaf_6:8668561-8668617 Cexcelsa_scaf_6:8668709-8668735 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_6/scaf_6.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/diploids/scaf_6/con_scaf_6.fasta
+
+######TETRAPLOIDS selectvariants_tets.sh 
+
+#SCAF 1 
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_tets.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_1:3432326-3436300 -L Cexcelsa_scaf_1:3436373-3436406 -L Cexcelsa_scaf_1:3436660-3436961 -O /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_1/scaf_1_tets.vcf 
+
+#generate consensus 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_1/scaf_1_tets.vcf
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_1/scaf_1_tets.vcf.gz 
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_1:3432326-3436300 Cexcelsa_scaf_1:3436373-3436406 Cexcelsa_scaf_1:3436660-3436961 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_1/scaf_1_tets.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_1/con_scaf_1_tets.fasta 
+
+#SCAF 2 
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_tets.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_2:33820099-33820358 -L Cexcelsa_scaf_2:33820557-33820663 -L Cexcelsa_scaf_2:33820786-33820841 -L Cexcelsa_scaf_2:33820953-33821177 -L Cexcelsa_scaf_2:33821325-33821531 -L Cexcelsa_scaf_2:33821606-33821692 -L Cexcelsa_scaf_2:33821782-33821877 -L Cexcelsa_scaf_2:33821958-33822173 -L Cexcelsa_scaf_2:33822253-33822435 -L Cexcelsa_scaf_2:33822549-33822821 -O /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_2/scaf_2_tets.vcf 
+
+#generate consensus 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_2/scaf_2_tets.vcf
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_2/scaf_2_tets.vcf.gz 
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_2:33820099-33820358 Cexcelsa_scaf_2:33820557-33820663 Cexcelsa_scaf_2:33820786-33820841 Cexcelsa_scaf_2:33820953-33821177 Cexcelsa_scaf_2:33821325-33821531 Cexcelsa_scaf_2:33821606-33821692 Cexcelsa_scaf_2:33821782-33821877 Cexcelsa_scaf_2:33821958-33822173 Cexcelsa_scaf_2:33822253-33822435 Cexcelsa_scaf_2:33822549-33822821 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_2/scaf_2_tets.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_2/con_scaf_2_tets.fasta
+
+#SCAF 6 
+
+gatk SelectVariants -R /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta -V /shared/Project2_Resources/Group3/HPC/VCFs/For_Students_2023/UK_scan_tets.vcf --select-type-to-include SNP --restrict-alleles-to BIALLELIC -select "AF>0.5" -L Cexcelsa_scaf_6:8663444-8664082 -L Cexcelsa_scaf_6:8664177-8664356 -L Cexcelsa_scaf_6:8664455-8664667 -L Cexcelsa_scaf_6:8664767-8664895 -L Cexcelsa_scaf_6:8665013-8665181 -L Cexcelsa_scaf_6:8665278-8665556 -L Cexcelsa_scaf_6:8665826-8665905 -L Cexcelsa_scaf_6:8666150-8666269 -L Cexcelsa_scaf_6:8666368-8666530 -L Cexcelsa_scaf_6:8667031-8667274 -L Cexcelsa_scaf_6:8667633-8667732 -L Cexcelsa_scaf_6:8667946-8668084 -L Cexcelsa_scaf_6:8668360-8668463 -L Cexcelsa_scaf_6:8668561-8668617 -L Cexcelsa_scaf_6:8668709-8668735 -L Cexcelsa_scaf_6:8663444-8664082 -L Cexcelsa_scaf_6:8664177-8664356 -L Cexcelsa_scaf_6:8664455-8664667 -L Cexcelsa_scaf_6:8664767-8664895 -L Cexcelsa_scaf_6:8665013-8665181 -L Cexcelsa_scaf_6:8665278-8665556 -L Cexcelsa_scaf_6:8665826-8665905 -L Cexcelsa_scaf_6:8666150-8666269 -L Cexcelsa_scaf_6:8666368-8666530 -L Cexcelsa_scaf_6:8667031-8667274 -L Cexcelsa_scaf_6:8667633-8667732 -L Cexcelsa_scaf_6:8667991-8668084 -L Cexcelsa_scaf_6:8668360-8668463 -L Cexcelsa_scaf_6:8668561-8668617 -L Cexcelsa_scaf_6:8668709-8668735 -O /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_6/scaf_6_tets.vcf 
+
+#generate consensus 
+
+bgzip /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_6/scaf_6_tets.vcf
+tabix -p vcf /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_6/scaf_6_tets.vcf.gz 
+
+samtools faidx /shared/Project2_Resources/Group3/HPC/Reference_Genome/C_excelsa_V5.fasta Cexcelsa_scaf_6:8663444-8664082 Cexcelsa_scaf_6:8664177-8664356 Cexcelsa_scaf_6:8664455-8664667 Cexcelsa_scaf_6:8664767-8664895 Cexcelsa_scaf_6:8665013-8665181 Cexcelsa_scaf_6:8665278-8665556 Cexcelsa_scaf_6:8665826-8665905 Cexcelsa_scaf_6:8666150-8666269 Cexcelsa_scaf_6:8666368-8666530 Cexcelsa_scaf_6:8667031-8667274 Cexcelsa_scaf_6:8667633-8667732 Cexcelsa_scaf_6:8667946-8668084 Cexcelsa_scaf_6:8668360-8668463 Cexcelsa_scaf_6:8668561-8668617 Cexcelsa_scaf_6:8668709-8668735 Cexcelsa_scaf_6:8663444-8664082 Cexcelsa_scaf_6:8664177-8664356 Cexcelsa_scaf_6:8664455-8664667 Cexcelsa_scaf_6:8664767-8664895 Cexcelsa_scaf_6:8665013-8665181 Cexcelsa_scaf_6:8665278-8665556 Cexcelsa_scaf_6:8665826-8665905 Cexcelsa_scaf_6:8666150-8666269 Cexcelsa_scaf_6:8666368-8666530 Cexcelsa_scaf_6:8667031-8667274 Cexcelsa_scaf_6:8667633-8667732 Cexcelsa_scaf_6:8667991-8668084 Cexcelsa_scaf_6:8668360-8668463 Cexcelsa_scaf_6:8668561-8668617 Cexcelsa_scaf_6:8668709-8668735 | bcftools consensus /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_6/scaf_6_tets.vcf.gz -o /shared/Project2_Resources/Group3/extracted_vcf/tetraploids/scaf_6/con_scaf_6_tets.fasta
 

@@ -72,7 +72,6 @@ apbs_surface dip
 apbs_surface tetra
 set surface_quality, 1
 
-
 set_view (\
      0.204236418,    0.346340626,    0.915605783,\
     -0.972405076,    0.179500535,    0.149007127,\

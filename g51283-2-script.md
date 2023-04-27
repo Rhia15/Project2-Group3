@@ -72,7 +72,6 @@ png mutation3-cartoon, dpi=600
 
 
 
-
 apbs_surface dip
 apbs_surface tetra
 set surface_quality, 1
